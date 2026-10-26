@@ -1,0 +1,48 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Readable name of the tracked website"
+    },
+    "domain": {
+      "type": "string",
+      "description": "Normalized domain, e.g. acme.com"
+    },
+    "project_id": {
+      "type": "string",
+      "description": "Public tracking key used by the snippet"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "verified"
+      ],
+      "default": "pending"
+    },
+    "verified_at": {
+      "type": "string"
+    },
+    "retention_days": {
+      "type": "number",
+      "default": 90
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "name",
+    "domain",
+    "project_id"
+  ],
+  "rls": {
+    "read": {},
+    "create": {},
+    "update": {},
+    "delete": {}
+  }
+}

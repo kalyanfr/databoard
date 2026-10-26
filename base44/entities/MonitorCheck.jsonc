@@ -1,0 +1,70 @@
+{
+  "name": "MonitorCheck",
+  "type": "object",
+  "properties": {
+    "monitor_id": {
+      "type": "string",
+      "description": "Monitor this check belongs to"
+    },
+    "owner_id": {
+      "type": "string",
+      "description": "User the monitor belongs to, so owners can read their own history"
+    },
+    "project_id": {
+      "type": "string",
+      "description": "Tracking key of the related project, when linked"
+    },
+    "checked_at": {
+      "type": "string"
+    },
+    "ok": {
+      "type": "boolean",
+      "description": "True when the site answered successfully"
+    },
+    "status_code": {
+      "type": "number"
+    },
+    "response_ms": {
+      "type": "number"
+    },
+    "error": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "monitor_id",
+    "checked_at"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "data.owner_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "$or": [
+        {
+          "data.owner_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

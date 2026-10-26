@@ -1,0 +1,31 @@
+{
+  "name": "VisitorDay",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string"
+    },
+    "visitor_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "UTC day key, YYYY-MM-DD"
+    },
+    "first_seen_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id",
+    "visitor_id",
+    "date"
+  ],
+  "rls": {
+    "read": {},
+    "create": {},
+    "update": {},
+    "delete": {}
+  }
+}

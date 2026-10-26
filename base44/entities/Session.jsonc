@@ -1,0 +1,74 @@
+{
+  "name": "Session",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string"
+    },
+    "session_id": {
+      "type": "string"
+    },
+    "visitor_id": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "last_seen_at": {
+      "type": "string"
+    },
+    "duration_seconds": {
+      "type": "number"
+    },
+    "pageview_count": {
+      "type": "number"
+    },
+    "event_count": {
+      "type": "number"
+    },
+    "is_bounce": {
+      "type": "boolean"
+    },
+    "entry_path": {
+      "type": "string"
+    },
+    "exit_path": {
+      "type": "string"
+    },
+    "referrer_domain": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "device": {
+      "type": "string"
+    },
+    "browser": {
+      "type": "string"
+    },
+    "os": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "utm_campaign": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id",
+    "session_id",
+    "started_at"
+  ],
+  "rls": {
+    "read": {},
+    "create": {},
+    "update": {},
+    "delete": {}
+  }
+}

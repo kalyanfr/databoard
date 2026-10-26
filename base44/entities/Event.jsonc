@@ -1,0 +1,104 @@
+{
+  "name": "Event",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Tracking key of the project this hit belongs to"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "pageview",
+        "event"
+      ],
+      "default": "pageview"
+    },
+    "name": {
+      "type": "string",
+      "description": "Custom event name, e.g. signup"
+    },
+    "url": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "referrer": {
+      "type": "string"
+    },
+    "referrer_domain": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "visitor_id": {
+      "type": "string"
+    },
+    "session_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "description": "UTC ISO timestamp of the hit"
+    },
+    "device": {
+      "type": "string"
+    },
+    "browser": {
+      "type": "string"
+    },
+    "os": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "description": "Two-letter ISO country code resolved from the request"
+    },
+    "region": {
+      "type": "string"
+    },
+    "utm_source": {
+      "type": "string"
+    },
+    "utm_medium": {
+      "type": "string"
+    },
+    "utm_campaign": {
+      "type": "string"
+    },
+    "screen_width": {
+      "type": "number"
+    },
+    "target": {
+      "type": "string",
+      "description": "For auto-captured events: the outbound URL, downloaded file URL or submitted form target"
+    },
+    "scroll_depth": {
+      "type": "number",
+      "description": "Scroll depth milestone percent (25/50/75/100) for scroll_depth events"
+    },
+    "engaged_seconds": {
+      "type": "number",
+      "description": "Seconds of active engagement for engaged_time events"
+    },
+    "properties": {
+      "type": "object"
+    },
+    "revenue": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "project_id",
+    "type",
+    "timestamp"
+  ],
+  "rls": {
+    "read": {},
+    "create": {},
+    "update": {},
+    "delete": {}
+  }
+}

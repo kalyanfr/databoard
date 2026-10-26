@@ -1,0 +1,115 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Data Board Analytics API",
+    "description": "Query live website analytics, real-time visitors, conversion goals, and uptime health from Data Board.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://gurukalyan.vercel.app"
+    }
+  ],
+  "paths": {
+    "/api/analytics": {
+      "get": {
+        "summary": "Query Data Board Analytics",
+        "description": "Fetch visitor metrics, realtime counts, top referral sources, top pages, conversions, or uptime.",
+        "operationId": "queryAnalytics",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["overview", "realtime", "sources", "pages", "conversions", "uptime"],
+              "default": "overview"
+            },
+            "description": "The category of analytics data to retrieve."
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["today", "24h", "7d", "30d"],
+              "default": "today"
+            },
+            "description": "Time range for the metrics."
+          },
+          {
+            "name": "project_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional project identifier to filter metrics."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            },
+            "description": "Maximum number of ranked results (for sources and pages)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful analytics response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": { "type": "boolean" },
+                    "type": { "type": "string" },
+                    "metrics": { "type": "object" },
+                    "summary_text": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid or missing API key"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": ["analytics:read"]
+          },
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "OAuth2": {
+        "type": "oauth2",
+        "description": "1-Click OAuth login with Data Board credentials",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://gurukalyan.vercel.app/api/oauth/authorize",
+            "tokenUrl": "https://gurukalyan.vercel.app/api/oauth/token",
+            "scopes": {
+              "analytics:read": "Read real-time visitor analytics, conversion goals, and uptime"
+            }
+          }
+        }
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

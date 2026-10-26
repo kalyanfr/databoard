@@ -1,0 +1,80 @@
+{
+  "name": "IdentifiedUser",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Tracking key of the project this user belongs to"
+    },
+    "user_id": {
+      "type": "string",
+      "description": "External customer user identifier (e.g. user_123 or email)"
+    },
+    "visitor_id": {
+      "type": "string",
+      "description": "First anonymous visitor ID linked to this user"
+    },
+    "email": {
+      "type": "string",
+      "description": "User email address"
+    },
+    "name": {
+      "type": "string",
+      "description": "User full name or display name"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "Avatar URL or Gravatar link"
+    },
+    "plan": {
+      "type": "string",
+      "description": "Subscription tier or plan (e.g. Free, Starter, Pro, Enterprise)"
+    },
+    "traits": {
+      "type": "object",
+      "description": "Custom metadata traits passed via identify()"
+    },
+    "first_seen_at": {
+      "type": "string",
+      "description": "ISO timestamp of the user's first visit"
+    },
+    "last_seen_at": {
+      "type": "string",
+      "description": "ISO timestamp of the user's most recent activity"
+    },
+    "total_events": {
+      "type": "number",
+      "default": 1
+    },
+    "total_sessions": {
+      "type": "number",
+      "default": 1
+    },
+    "total_revenue": {
+      "type": "number",
+      "default": 0
+    },
+    "country": {
+      "type": "string",
+      "description": "Two-letter ISO country code"
+    },
+    "initial_referrer": {
+      "type": "string",
+      "description": "Original referrer URL that brought this user"
+    },
+    "initial_channel": {
+      "type": "string",
+      "description": "Original channel (Organic Search, Social, Paid, Direct, etc.)"
+    }
+  },
+  "required": [
+    "project_id",
+    "user_id"
+  ],
+  "rls": {
+    "read": {},
+    "create": {},
+    "update": {},
+    "delete": {}
+  }
+}

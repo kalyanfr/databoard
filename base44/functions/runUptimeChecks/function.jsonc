@@ -1,0 +1,13 @@
+{
+  "name": "runUptimeChecks",
+  "entry": "entry.ts",
+  "automations": [
+    {
+      "type": "scheduled",
+      "name": "uptime_checks_every_five_minutes",
+      "schedule_mode": "recurring",
+      "schedule_type": "cron",
+      "cron_expression": "*/5 * * * *"
+    }
+  ]
+}

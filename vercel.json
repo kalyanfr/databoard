@@ -1,0 +1,89 @@
+{
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    },
+    {
+      "source": "/sse",
+      "destination": "/api/mcp"
+    },
+    {
+      "source": "/.well-known/oauth-authorization-server(.*)",
+      "destination": "/api/oauth?discovery=true"
+    },
+    {
+      "source": "/.well-known/openid-configuration",
+      "destination": "/api/oauth?discovery=true"
+    },
+    {
+      "source": "/api/mcp/.well-known/oauth-authorization-server",
+      "destination": "/api/oauth?discovery=true"
+    },
+    {
+      "source": "/functions/track",
+      "destination": "/api/track"
+    },
+    {
+      "source": "/functions/verifyDomain",
+      "destination": "/api/verifyDomain"
+    },
+    {
+      "source": "/functions/runUptimeChecks",
+      "destination": "/api/uptimeCheck"
+    },
+    {
+      "source": "/functions/email",
+      "destination": "/api/email"
+    },
+    {
+      "source": "/functions/telegram",
+      "destination": "/api/telegram"
+    },
+    {
+      "source": "/functions/cloudflare",
+      "destination": "/api/cloudflare"
+    },
+    {
+      "source": "/functions/apiKey",
+      "destination": "/api/apiKey"
+    },
+    {
+      "source": "/api/dodoCheckout",
+      "destination": "/api/dodo"
+    },
+    {
+      "source": "/api/dodoWebhook",
+      "destination": "/api/dodo"
+    },
+    {
+      "source": "/functions/dodoCheckout",
+      "destination": "/api/dodo"
+    },
+    {
+      "source": "/functions/dodoWebhook",
+      "destination": "/api/dodo"
+    },
+    {
+      "source": "/functions/analytics",
+      "destination": "/api/analytics"
+    },
+    {
+      "source": "/api/oauth/authorize",
+      "destination": "/api/oauth"
+    },
+    {
+      "source": "/api/oauth/token",
+      "destination": "/api/oauth"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "EmailCampaign",
+  "type": "object",
+  "properties": {
+    "subject": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string",
+      "description": "The message sent to every recipient"
+    },
+    "audience": {
+      "type": "string",
+      "enum": [
+        "all",
+        "admins"
+      ],
+      "default": "all",
+      "description": "all = every registered user, admins = admins only"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent"
+      ],
+      "default": "draft"
+    },
+    "recipient_count": {
+      "type": "number"
+    },
+    "sent_at": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string",
+      "description": "Delivery note when some recipients could not be reached"
+    }
+  },
+  "required": [
+    "subject",
+    "body"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

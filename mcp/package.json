@@ -1,0 +1,24 @@
+{
+  "name": "databoard-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for Data Board Analytics. Query your visitor traffic, conversion goals, and uptime from Claude, Cursor, ChatGPT, and Codestral.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "databoard-mcp": "./index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "cursor",
+    "chatgpt",
+    "analytics",
+    "databoard"
+  ],
+  "author": "Guru Kalyan",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0"
+  }
+}

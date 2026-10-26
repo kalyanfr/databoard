@@ -1,0 +1,25 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user"
+      ]
+    },
+    "alert_email": {
+      "type": "string",
+      "description": "Where uptime alerts go by default for this user"
+    },
+    "product_updates": {
+      "type": "boolean",
+      "description": "Whether the user wants product and marketing emails"
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "AppConfig",
+  "type": "object",
+  "properties": {
+    "from_name": {
+      "type": "string",
+      "description": "Sender name used on every email the app sends"
+    },
+    "support_email": {
+      "type": "string",
+      "description": "Address users are told to write to for help"
+    },
+    "uptime_alerts_enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Global switch for uptime down/recovery emails"
+    },
+    "maintenance_banner": {
+      "type": "string",
+      "description": "Notice shown at the top of the app for every signed-in user"
+    }
+  },
+  "required": [],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

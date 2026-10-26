@@ -1,0 +1,93 @@
+{
+  "name": "Monitor",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Readable label, e.g. Acme marketing site"
+    },
+    "url": {
+      "type": "string",
+      "description": "Full http(s) URL that is checked for uptime"
+    },
+    "project_id": {
+      "type": "string",
+      "description": "Tracking key of the related project, when the monitor is linked to one"
+    },
+    "owner_email": {
+      "type": "string",
+      "description": "Email of the user who added the monitor (shown in the admin panel)"
+    },
+    "alert_email": {
+      "type": "string",
+      "description": "Address that receives down and recovery alerts"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "up",
+        "down",
+        "paused"
+      ],
+      "default": "up"
+    },
+    "last_checked_at": {
+      "type": "string"
+    },
+    "last_status_code": {
+      "type": "number"
+    },
+    "last_response_ms": {
+      "type": "number"
+    },
+    "consecutive_failures": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "name",
+    "url"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
